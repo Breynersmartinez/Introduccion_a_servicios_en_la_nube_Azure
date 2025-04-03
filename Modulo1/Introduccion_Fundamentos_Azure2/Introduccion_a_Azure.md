@@ -66,3 +66,5 @@ Usa la **Microsoft Learn Sandbox** (entorno gratuito sin instalar nada).
 🌩️ **"Azure no es el futuro, es el presente. Domina los fundamentos hoy y abre puertas a oportunidades ilimitadas."**  
 
 [▶️ **Siguiente lección**: "Modelos de nube: IaaS, PaaS y SaaS"].
+
+
