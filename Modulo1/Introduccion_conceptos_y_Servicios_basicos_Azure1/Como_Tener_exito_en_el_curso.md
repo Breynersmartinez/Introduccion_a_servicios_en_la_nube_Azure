@@ -9,6 +9,7 @@
 - **Beneficio**: Combate la procrastinación y mantén la motivación.
 - 📌 Tip: ¡Recompénsate después de cada logro!
 
+
 ### 2️⃣ Crea un Espacio de Estudio Libre de Distracciones
 - **Cómo implementarlo**:
   - Elige un lugar fijo (no tu cama o sofá).
