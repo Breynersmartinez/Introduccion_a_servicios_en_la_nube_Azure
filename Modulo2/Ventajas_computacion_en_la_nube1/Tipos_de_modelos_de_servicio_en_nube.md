@@ -1,1 +1,43 @@
-Al igual que PaaS, la informática sin servidor permite a los desarrolladores crear aplicaciones más rápido al eliminar la necesidad de que gestionen la infraestructura. Con las aplicaciones sin servidor, el proveedor de servicios en la nube aprovisiona, escala y administra automáticamente la infraestructura necesaria para ejecutar el código. Las arquitecturas sin servidor son altamente escalables y se basan en eventos, y solo utilizan recursos cuando se produce una función o un desencadenante específicos. Es importante tener en cuenta que los servidores siguen ejecutando el código. El nombre de servidor sin servidor proviene del hecho de que las tareas asociadas con el aprovisionamiento y la administración de la infraestructura son invisibles para el desarrollador. Este enfoque permite a los desarrolladores centrarse más en la lógica empresarial y aportar más valor al núcleo de la empresa. La informática sin servidores ayuda a los equipos a aumentar su productividad y a lanzar los productos al mercado con mayor rapidez, y permite a las organizaciones optimizar mejor los recursos y centrarse en la innovación.
+# ⚡ Computación sin Servidor (Serverless) en Azure
+
+## 📌 Definición Clave
+> "Sin servidor no significa *sin servidores*, sino **sin gestión de servidores** por parte del desarrollador."
+
+## 🔍 ¿Cómo Funciona?
+- **Modelo basado en eventos**: Ejecución por triggers (HTTP, colas, BD, etc.)
+- **Escalado automático**: De 0 a miles de instancias en segundos
+- **Pago por uso**: Solo se cobra el tiempo de ejecución real (por milisegundo)
+
+## 🆚 Comparativa: PaaS vs Serverless
+| Característica       | PaaS                  | Serverless             |
+|----------------------|-----------------------|------------------------|
+| **Escalado**         | Manual/Auto           | Automático instantáneo |
+| **Coste**            | Por recurso asignado  | Por ejecución real     |
+| **Tiempo de inicio** | Minutos-segundos      | Milisegundos           |
+| **Estado**           | Mantiene estado       | Sin estado (stateless) |
+| **Ejemplo Azure**    | Azure App Service     | Azure Functions        |
+
+## 💡 Beneficios para Tailwind Traders
+1. **Productividad**:
+   - Equipos enfocados en código (no en infraestructura)
+   - Implementaciones más rápidas (ej: procesar pedidos en e-commerce)
+
+2. **Optimización de costos**:
+   - Cero costo cuando no hay tráfico
+   - Ideal para cargas intermitentes (ej: procesar imágenes al subirlas)
+
+3. **Escalabilidad nativa**:
+   - Picos de tráfico manejados automáticamente (ej: Black Friday)
+
+## 🛠️ Servicios Serverless en Azure
+- **Azure Functions**: Ejecución de código basada en eventos
+  ```csharp
+  // Ejemplo: Función que procesa uploads a Blob Storage
+  public static void Run(
+      [BlobTrigger("uploads/{name}")] Stream myBlob, 
+      string name, 
+      ILogger log)
+  {
+      log.LogInformation($"Nuevo archivo: {name}");
+      // Lógica de procesamiento...
+  }
