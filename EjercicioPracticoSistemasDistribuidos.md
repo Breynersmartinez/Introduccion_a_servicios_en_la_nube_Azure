@@ -480,6 +480,16 @@ docker compose logs -f
 # Verificar que los contenedores estén corriendo
 docker compose ps
 ```
+## COMADOS SEGUN LA VERSION DE DOCKER
+
+| Acción                | Versión clásica                | Versión nueva                  |
+| --------------------- | ------------------------------ | ------------------------------ |
+| Levantar contenedores | `docker-compose up -d`         | `docker compose up -d`         |
+| Reconstruir imagen    | `docker-compose up -d --build` | `docker compose up -d --build` |
+| Ver logs              | `docker-compose logs -f`       | `docker compose logs -f`       |
+| Ver servicios activos | `docker-compose ps`            | `docker compose ps`            |
+
+
 
 ### 1.10 Probar la API desde el Servidor
 
