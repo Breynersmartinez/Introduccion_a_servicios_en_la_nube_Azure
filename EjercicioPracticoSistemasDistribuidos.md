@@ -142,6 +142,30 @@ server.address=0.0.0.0
 EOF
 ```
 
+
+# EXPLICACION DEL FUNCIONAMIENTO DE JPA:
+
+##  spring.jpa.hibernate.ddl-auto=update, Hibernate:
+
+- Crea las tablas si no existen.
+
+- Las actualiza si cambias la estructura de las entidades.
+
+- No borra datos existentes.
+
+##  create, Hibernate:
+
+- Borra las tablas y las vuelve a crear cada vez que inicias la app.
+
+##  create-drop, Hibernate:
+
+- Crea las tablas al iniciar y las borra al detener la app.
+
+##  validate, Hibernate:
+
+- Solo verifica que las tablas existan y coincidan con las entidades (no crea ni modifica nada).
+
+
 ### 1.5 Crear las Clases Java
 
 **Archivo: `src/main/java/com/example/products/ProductsApplication.java`**
@@ -697,7 +721,9 @@ sed -i "s/IP_VM1/$VM1_IP/g" product-client.sh
 ```
 
 # Para conocer la IP privada de la VM1, ejecute este comando dentro de la VM1:
+```bash
 hostname -I
+```
 <img width="358" height="33" alt="image" src="https://github.com/user-attachments/assets/f067b99b-f21f-4a1d-a606-0e57c5e8b985" />
 
 
