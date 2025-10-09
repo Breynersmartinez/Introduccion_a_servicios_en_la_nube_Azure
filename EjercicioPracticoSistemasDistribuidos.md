@@ -451,6 +451,7 @@ En el Portal de Azure:
    - **Puerto 5432**: Solo si necesitas acceso directo a PostgreSQL (opcional)
 
 O desde la terminal:
+Si la les aparece el aviso que no se encuentran los comandos, no se preocupen, ese error solo aparece porque la CLI de Azure (az) no está instalada dentro de la máquina, pero no afecta en nada al funcionamiento de tu aplicación, contenedores o Docker Compose.
 
 ```bash
 # Obtener el NSG de la VM
