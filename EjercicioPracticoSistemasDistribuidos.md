@@ -481,6 +481,17 @@ docker compose logs -f
 # Verificar que los contenedores estén corriendo
 docker compose ps
 ```
+
+## Logs del contenedor 
+<img width="792" height="727" alt="image" src="https://github.com/user-attachments/assets/1e03452c-591d-4ff9-9487-b4ad681db83c" />
+
+## Arranque de la aplicacion springboot
+<img width="793" height="805" alt="image" src="https://github.com/user-attachments/assets/14ca1934-a7f5-444b-9fc4-2343c1fbfb43" />
+
+## Creacion de la tabla 
+<img width="773" height="821" alt="image" src="https://github.com/user-attachments/assets/86e17e12-3f9f-4084-a79a-7669eaa46b1c" />
+
+
 ## COMADOS SEGUN LA VERSION DE DOCKER
 
 | Acción                | Versión clásica                | Versión nueva                  |
@@ -512,6 +523,7 @@ curl -X POST http://localhost:8080/api/products \
     "stock": 10
   }'
 ```
+<img width="1600" height="178" alt="image" src="https://github.com/user-attachments/assets/8bbdc802-69e1-4e5f-9098-a4f1d40fb6b5" />
 
 ---
 
@@ -533,7 +545,7 @@ sudo apt install -y curl jq
 cat > product-client.sh << 'EOF'
 #!/bin/bash
 
-# Configuración
+# Configuración:  PONGA LA IP PRIVADA  DONDE DICE IP_VM1
 API_URL="http://IP_VM1:8080/api/products"
 
 # Colores para la salida
@@ -664,19 +676,40 @@ EOF
 chmod +x product-client.sh
 ```
 
+<img width="763" height="830" alt="image" src="https://github.com/user-attachments/assets/407de6fc-83fd-4e29-9499-f64ac3993ff6" />
+
+
+
 ### 2.3 Configurar la IP del Servidor
 
 ```bash
-# Reemplazar IP_VM1 con la IP pública real de VM1
-read -p "Ingrese la IP pública de VM1: " VM1_IP
+#  Debes usar la **IP PRIVADA** de la VM1 (Servidor)
+# y NO la IP pública, ya que ambas máquinas (VM1 y VM2) están en la misma red virtual de Azure.
+
+# Para conocer la IP privada de la VM1, ejecute este comando dentro de la VM1:
+hostname -I
+
+# copie la primera IP que aparezca (ejemplo: 10.0.0.4)
+# y reemplacela en el siguiente comando:
+
+read -p "Ingrese la IP PRIVADA de la VM1 (Servidor): " VM1_IP
 sed -i "s/IP_VM1/$VM1_IP/g" product-client.sh
 ```
+
+# Para conocer la IP privada de la VM1, ejecute este comando dentro de la VM1:
+hostname -I
+<img width="358" height="33" alt="image" src="https://github.com/user-attachments/assets/f067b99b-f21f-4a1d-a606-0e57c5e8b985" />
+
+
 
 ### 2.4 Ejecutar el Cliente
 
 ```bash
 ./product-client.sh
 ```
+
+<img width="407" height="516" alt="image" src="https://github.com/user-attachments/assets/865719e3-2ff7-46cc-8de4-679c71a0b1f0" />
+
 
 ---
 
@@ -763,7 +796,7 @@ docker exec -it products-postgres psql -U admin -d productsdb -c "SELECT * FROM 
 ### Desde VM2 probar conectividad:
 
 ```bash
-# Ping a VM1
+# Ping a VM1 USANDO LA IP PRIVADA
 ping -c 4 <IP_VM1>
 
 # Verificar puerto 8080
