@@ -714,16 +714,19 @@ chmod +x product-client.sh
 
 ### 2.3 Configurar la IP del Servidor
 
+
+# Debes usar la **IP PRIVADA** de la VM1 (Servidor)
+- y NO la IP pública, ya que ambas máquinas (VM1 y VM2) están en la misma red virtual de Azure.
+
+- Para conocer la IP privada de la VM1, ejecute este comando dentro de la VM1:
 ```bash
-#  Debes usar la **IP PRIVADA** de la VM1 (Servidor)
-# y NO la IP pública, ya que ambas máquinas (VM1 y VM2) están en la misma red virtual de Azure.
-
-# Para conocer la IP privada de la VM1, ejecute este comando dentro de la VM1:
 hostname -I
+```
 
-# copie la primera IP que aparezca (ejemplo: 10.0.0.4)
-# y reemplacela en el siguiente comando:
+- copie la primera IP que aparezca (ejemplo: 10.0.0.4)
+- y reemplacela en el siguiente comando:
 
+```bash
 read -p "Ingrese la IP PRIVADA de la VM1 (Servidor): " VM1_IP
 sed -i "s/IP_VM1/$VM1_IP/g" product-client.sh
 ```
