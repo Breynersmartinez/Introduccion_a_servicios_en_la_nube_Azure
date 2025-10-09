@@ -143,6 +143,14 @@ EOF
 ```
 
 
+# Enfoques de modelado en JPA
+
+| Enfoque            | Qué se hace  primero                              | 
+| ------------------ | ------------------------------------------------- | 
+| **Code-First**     | Creas las entidades y JPA genera la base de datos | 
+| **Database-First** | Ya tienes la base y mapeas las entidades          |
+
+
 # EXPLICACION DEL FUNCIONAMIENTO DE JPA:
 
 ##  spring.jpa.hibernate.ddl-auto=update, Hibernate:
