@@ -428,10 +428,7 @@ EOF
 
 ```bash
 cat > docker-compose.yml << 'EOF'
-version: '3.8'
-
 services:
-
   springboot-app:
     build: .
     container_name: products-api
@@ -447,6 +444,23 @@ services:
     networks:
       - products-network
     restart: unless-stopped
+
+  postgres:
+    image: postgres:16
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: productsqa
+      POSTGRES_USER: neondb_owner
+      POSTGRES_PASSWORD: npg_wUaAc6TeV1oz
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U neondb_owner"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - products-network
 
 volumes:
   postgres_data:
