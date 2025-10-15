@@ -121,6 +121,7 @@ EOF
 **Archivo: `src/main/resources/application.properties`**
 
 ```bash
+cat > src/main/resources/application.properties << 'EOF'
 spring.datasource.url=${SPRING_DATASOURCE_URL}
 spring.datasource.username=${SPRING_DATASOURCE_USERNAME}
 spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
@@ -131,6 +132,7 @@ spring.datasource.username=${SPRING_DATASOURCE_USERNAME}
 spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
+EOF
 ```
 
 
