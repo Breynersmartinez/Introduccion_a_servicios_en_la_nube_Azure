@@ -1,7 +1,7 @@
 
 ##  Arquitectura del Sistema
 
-- **VM1 (Servidor)**: Spring Boot + PostgreSQL con Docker Compose
+- **VM1 (Servidor)**: Spring Boot + conexion local BD PostgreSQL  con Docker file y  Docker Compose 
 - **VM2 (Cliente)**: Aplicación cliente que consume la API
 
 ##  PARTE 1: Configuración de VM1 (Servidor)
