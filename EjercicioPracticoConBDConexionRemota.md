@@ -435,9 +435,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://ep-empty-heart-adwgh8ea-pooler.c-2.us-east-1.aws.neon.tech/productsqa?sslmode=require&channel_binding=require
-      SPRING_DATASOURCE_USERNAME: neondb_owner
-      SPRING_DATASOURCE_PASSWORD: npg_wUaAc6TeV1oz
+      SPRING_DATASOURCE_URL: jdbc:
+      SPRING_DATASOURCE_USERNAME: 
+      SPRING_DATASOURCE_PASSWORD: 
     depends_on:
       postgres:
         condition: service_healthy
