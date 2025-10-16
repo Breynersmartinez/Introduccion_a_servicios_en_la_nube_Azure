@@ -431,8 +431,6 @@ EOF
 
 ```bash
 cat > docker-compose.yml << 'EOF'
-version: '3.8'
-
 services:
   postgres:
     image: postgres:15-alpine
@@ -462,6 +460,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/productsdb
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: admin123
+      # SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver  # (opcional)
     depends_on:
       postgres:
         condition: service_healthy
