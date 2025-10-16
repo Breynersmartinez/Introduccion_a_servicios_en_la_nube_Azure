@@ -425,7 +425,30 @@ EOF
 
 ### 1.7 Crear docker-compose.yml
 
+## CONEXION RENDER
+```bash
+services:
+  springboot-app:
+    build: .
+    container_name: products-api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-d3nuunali9vc73ch4tb0-a.oregon-postgres.render.com:5432/products_qa
+      SPRING_DATASOURCE_USERNAME: breiner
+      SPRING_DATASOURCE_PASSWORD: rgiWYoiakZ21ozTKYCvP8q8xY1V0ih3m
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+    networks:
+      - products-network
+    restart: unless-stopped
 
+networks:
+  products-network:
+    driver: bridge
+```
+
+## CONEXION NEON
 ```bash
 cat > docker-compose.yml << 'EOF'
 services:
